@@ -2,25 +2,35 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace SysLog
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-        static string encripSenha(string senha)
-        {
-            byte[] senhaOriginal; // um array de bytes da senha original
-            byte[] senhaModificada;
-            MD5 mD5; // metodo de criptografia usando o Security.Criptography
+namespace SysLog {
+    class Program {
+        static void Main (string[] args) {
+            string opcao = "";
 
-            senhaOriginal = Encoding.Default.GetBytes(senha); // pega os bytes da senha e grana no array senhaOriginal
-            mD5 = MD5.Create(); 
-            senhaModificada= mD5.ComputeHash(senhaOriginal); // transforma a senha original na criptografia e joga dentro da senhaModificada
+            //Menu principal 
+            do {
+                Console.WriteLine ("Digite a opção");
+                Console.WriteLine ("1 - Cadastrar Usuario");
+                Console.WriteLine ("2 - Login");
+                Console.WriteLine ("3 - Logout");
+                Console.WriteLine ("9 - Sair");
 
-            return Convert.ToBase64String(senhaModificada); // return a senhaModificada convertida pra string (to base pq é uma array e pra manter a array inteira na mesma string)
+                opcao = Console.ReadLine ();
+
+                switch (opcao) {
+                    case "1":
+                        {
+                            Usuario us = new Usuario ();
+                            us.CadastrarUsuario ();
+                            break;
+                        }
+                    case "2":
+                        {
+
+                        }
+                }
+
+            } while (opcao != "9");
         }
     }
 }
