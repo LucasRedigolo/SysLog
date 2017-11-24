@@ -4,9 +4,9 @@ using System.Text;
 
 namespace SysLog {
     class Program {
-        static void Main (string[] args) {
+        static void Main (string[] args) 
+        {
             string opcao = "";
-
             //Menu principal 
             do {
                 Console.WriteLine ("Digite a opção");
@@ -26,10 +26,11 @@ namespace SysLog {
                         }
                     case "2":
                         {
-
+                            Login lg = new Login ();
+                            lg.Logar ();
+                            break;
                         }
                 }
-
             } while (opcao != "9");
         }
     }
